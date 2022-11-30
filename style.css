@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Anton&family=Courier+Prime:wght@700&display=swap");
+ @import url("https://fonts.googleapis.com/css2?family=Anton&family=Courier+Prime:wght@700&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -89,6 +89,7 @@ body {
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
 }
+/* CSS styles */
 .city_weather {
   list-style: none;
   /* border: 1px solid red; */
@@ -98,10 +99,12 @@ body {
   font-family: "Courier Prime", monospace;
   font-weight: 100;
   width: 100%;
-  color: aliceblue;
+  color:aliceblue;
   box-shadow: 10px 20px 47px 0px rgba(25,21,21,0.75);
 -webkit-box-shadow: 10px 20px 47px 0px rgba(25,21,21,0.75);
 -moz-box-shadow: 10px 20px 47px 0px rgba(25,21,21,0.75);
+position:relative;
+overflow: hidden;
 }
 .name_temp {
   display: flex;
@@ -128,6 +131,90 @@ body {
   text-transform: capitalize;
   font-size: 20px;
 }
+/* Animation part */
+.city_weather:hover .span1{
+  position: absolute;
+  top: 0;
+  left:0;
+  width:100%;
+  height: 2px;
+  background-image: linear-gradient(to right,#fffccc, #fc6c04);
+  animation: span1 2s linear infinite;
+  /* border-radius: 50px; */
+}
+@keyframes span1 {
+  0%{
+      transform: translateX(-100%);
+      
+  }
+  100%{
+      transform: translateX(100%);
+
+  }
+}
+.city_weather:hover .span2{
+  position: absolute;
+  top: 0;
+ right:0;
+  width:2px;
+  height: 100%;
+  background-image: linear-gradient(to bottom,#fffccc, #fc6c04);
+  animation:span2 2s linear infinite;
+  animation-delay: 1s;
+}
+@keyframes span2 {
+  0%{
+      transform: translateY(-100%);
+      
+  }
+  100%{
+      transform: translateY(100%);
+
+  }
+}
+.city_weather:hover .span3{
+  position: absolute;
+  bottom: 0;
+ left:0;
+  width:100%;
+  height: 2px;
+  background-image: linear-gradient(to right,#fffccc, #fc6c04);
+  animation: span3 2s linear infinite;
+  animation-delay: 1s;
+}
+@keyframes span3 {
+  0%{
+      transform: translateX(100%);
+      
+  }
+  100%{
+      transform: translateX(-100%);
+
+  }
+}
+
+.city_weather:hover .span4{
+  
+  position: absolute;
+  bottom: 0;
+  left:0;
+  width:2px;
+  height: 100%;
+  background-image: linear-gradient(to bottom,#fffccc, #fc6c04);
+  animation:span4 2s linear infinite;
+  animation-delay: 1s;
+
+}
+@keyframes span4 {
+  0%{
+      transform: translateY(100%);
+      
+  }
+  100%{
+      transform: translateY(-100%);
+
+  }
+}
 @media screen and (max-width: 900px) {
   .list_cities_weather {
     
@@ -137,10 +224,9 @@ body {
 }
 @media screen and (max-width: 570px) {
   .list_cities_weather {
-    display: grid;
+   
     grid-template-columns: 1fr;
-    gap: 2rem;
-    align-content: center;
+    
   }
   .name_temp {
     display: flex;
